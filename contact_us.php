@@ -24,7 +24,10 @@
         echo "error: ",mysqli_error($conn);
         exit;
     }
-    echo "We will contact you soon";
+    echo '<script type ="text/JavaScript">';  
+    echo 'alert("We will contact you soon !!!")';
+    echo '</script>';
+    header('Refresh: 1; url=Main.html');
     mysqli_close($conn);
  
 ?>
