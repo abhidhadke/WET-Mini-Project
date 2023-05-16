@@ -24,7 +24,7 @@
             <div id="search-btn" class="fas fa-search"></div>
 
         </div>
-       
+
     </header>
 
     <div class="search-form">
@@ -44,10 +44,21 @@
                     <span>never stop</span>
                     <h3>exploring</h3>
                     <p>Travel.com offers best deals on India tour packages.</p>
-                    <!-- <a href="#category" class="btn">get started</a> -->
-                    <canvas id="rive_canvas"> Cat Button</canvas>
-                    <script>src = 'js/rive.js'</script>
-                    
+                    <a href="#category"><canvas id="rive_canvas"> Cat Button</canvas></a>
+                    <script src="https://unpkg.com/@rive-app/canvas@1.1.6"></script>
+                    <script>
+                        new rive.Rive({
+                            src: "/rive/cat-button_1.riv",
+                            // Or the path to a public Rive asset
+                            // src: '/public/example.riv',
+                            canvas: document.getElementById("rive_canvas"),
+                            autoplay: true,
+                            stateMachines: 'State Machine 1'
+
+                        });
+
+                    </script>
+
                 </div>
             </div>
         </div>
@@ -196,7 +207,23 @@
                     </div>
                     <div class="msg">
                         <textarea placeholder="Message" name="message"></textarea>
-                        <div class="btn1"><button type="submit">send</div>
+                        <button id="submitBtn" type="submit"></button>
+                        <canvas id="paper_canvas" height="100" width="200"> Paper Button</canvas>
+                        <script src="https://unpkg.com/@rive-app/canvas@1.1.6"></script>
+                        <script>
+                            const canvas = document.getElementById("paper_canvas");
+                            const r = new rive.Rive({
+                                src: "/rive/paper_plane_button.riv",
+                                canvas: canvas,
+                                autoplay: true,
+                                stateMachines: 'State Machine 1',
+                            });
+                            canvas.addEventListener("click", function () {
+                                setTimeout(function () {
+                                    document.getElementById("submitBtn").click();
+                                }, 2500); 
+                            });
+                        </script>
                 </form>
             </div>
         </div>
